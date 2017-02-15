@@ -1,8 +1,11 @@
 package com.ramillete.sfj.ramilletesfj;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+    public int cont=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,6 @@ public class MainActivity extends AppCompatActivity
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -40,6 +46,47 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Button sumarMisa = (Button) findViewById(R.id.sumaMisa);
+        sumarMisa.setOnClickListener(this);
+        Button restarMisa = (Button) findViewById(R.id.restaMisa);
+        restarMisa.setOnClickListener(this);
+
+        cargarPreferencias();
+        //((TextView) findViewById(R.id.txtConMisa)).setText();
+
+
+    }
+
+    private void cargarPreferencias() {
+
+    }
+
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.sumaMisa:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtConMisa)).getText());
+                cont++;
+                ((TextView) findViewById(R.id.txtConMisa)).setText(""+cont);
+                break;
+            case R.id.restaMisa:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtConMisa)).getText());
+                cont--;
+                ((TextView) findViewById(R.id.txtConMisa)).setText(""+cont);
+                break;
+            default:Log.d("error","la condicion callo aqui");
+                break;
+        }
+    }
+    public void onGuardar(){
+        SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = misPreferencias.edit();
+        editor.putString("Misa",(String)((TextView) findViewById(R.id.txtConMisa)).getText());
+
+
+        editor.commit();
+
     }
 
     @Override
@@ -51,6 +98,23 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+    /*public void onSum(View v) {
+        switch (v.getId())
+        {
+            case R.id.sumarMisa:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtConMisa)).getText());
+                cont++;
+                ((TextView) findViewById(R.id.txtConMisa)).setText(""+cont);
+                break;
+            case R.id.restaMisa:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtConMisa)).getText());
+                cont--;
+                ((TextView) findViewById(R.id.txtConMisa)).setText(""+cont);
+                break;
+            default:Log.d("error","la condicion callo aqui");
+                break;
+        }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,4 +162,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

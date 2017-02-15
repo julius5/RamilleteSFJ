@@ -55,7 +55,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
 
                 <Button
                     android:layout_width="40dp"
@@ -65,7 +66,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
 
             </TableRow>
             <TableRow
