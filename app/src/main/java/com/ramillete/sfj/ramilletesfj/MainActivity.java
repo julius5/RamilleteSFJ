@@ -2,6 +2,7 @@ package com.ramillete.sfj.ramilletesfj;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,8 +22,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+
     public int cont=0;
-    public TextView Misa;
+    public TextView Misa,Comunion,ComuEsp,Rosa,Sacri,HrSanta,ExaConci,Confe,Biblia,HrsServicio,RosaMisio;
+    public TextView Ayuno,BendicionMesa,ObrasEsp,ObrasCorp,Coronilla,Caridad,PadreNuestro,AveMaria;
+
     boolean cargar=false;
     int band;
 
@@ -50,6 +54,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //PASAR a Otra clase
 
         Button sumarMisa = (Button) findViewById(R.id.sumarMisa);
         sumarMisa.setOnClickListener(this);
@@ -119,6 +126,16 @@ public class MainActivity extends AppCompatActivity
         sumarCaridad.setOnClickListener(this);
         Button restarCaridad = (Button) findViewById(R.id.restarCaridad);
         restarCaridad.setOnClickListener(this);
+        Button sumarPadreNuestro = (Button) findViewById(R.id.sumarPadreNuestro);
+        sumarPadreNuestro.setOnClickListener(this);
+        Button restarPadreNuestro = (Button) findViewById(R.id.restarPadreNuestro);
+        restarPadreNuestro.setOnClickListener(this);
+        Button sumarAveMaria = (Button) findViewById(R.id.sumarAveMaria);
+        sumarAveMaria.setOnClickListener(this);
+        Button restarAveMaria = (Button) findViewById(R.id.restarAveMaria);
+        restarAveMaria.setOnClickListener(this);
+
+
 
 
         cargarPreferencias();
@@ -139,9 +156,48 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void cargarPreferencias( ) {
+
         Misa=(TextView) findViewById(R.id.txtContMisa);
+        Comunion=(TextView) findViewById(R.id.txtContComunion);
+        ComuEsp=(TextView) findViewById(R.id.txtContComuEsp);
+        Rosa=(TextView) findViewById(R.id.txtContRosa);
+        Sacri=(TextView) findViewById(R.id.txtContSacri);
+        HrSanta=(TextView) findViewById(R.id.txtContHrSanta);
+        ExaConci=(TextView) findViewById(R.id.txtContExaConci);
+        Confe=(TextView) findViewById(R.id.txtContConfe);
+        Biblia=(TextView) findViewById(R.id.txtContBiblia);
+        HrsServicio=(TextView) findViewById(R.id.txtContHrsServi);
+        RosaMisio=(TextView) findViewById(R.id.txtContRosaMisio);
+        Ayuno=(TextView) findViewById(R.id.txtContAyuno);
+        BendicionMesa=(TextView) findViewById(R.id.txtContBendicionMesa);
+        ObrasEsp=(TextView) findViewById(R.id.txtContObrasEsp);
+        ObrasCorp=(TextView) findViewById(R.id.txtContObrasCorp);
+        Coronilla=(TextView) findViewById(R.id.txtContCoronilla);
+        Caridad=(TextView) findViewById(R.id.txtContCaridad);
+        PadreNuestro=(TextView) findViewById(R.id.txtContPadreNuestro);
+        AveMaria=(TextView) findViewById(R.id.txtContAveMaria);
+
         SharedPreferences misPreferencias=getSharedPreferences("RamilleteUsuario",Context.MODE_PRIVATE);
         Misa.setText(misPreferencias.getString("Misa","0"));
+        Comunion.setText(misPreferencias.getString("Comunion","0"));
+        ComuEsp.setText(misPreferencias.getString("ComunionEsp","0"));
+        Rosa.setText(misPreferencias.getString("Rosario","0"));
+        Sacri.setText(misPreferencias.getString("Sacrificio","0"));
+        HrSanta.setText(misPreferencias.getString("hrSanta","0"));
+        ExaConci.setText(misPreferencias.getString("ExamenConci","0"));
+        Confe.setText(misPreferencias.getString("Confesion","0"));
+        Biblia.setText(misPreferencias.getString("Biblia","0"));
+        HrsServicio.setText(misPreferencias.getString("HrServicio","0"));
+        RosaMisio.setText(misPreferencias.getString("RosaMisio","0"));
+        Ayuno.setText(misPreferencias.getString("Ayuno","0"));
+        BendicionMesa.setText(misPreferencias.getString("BendicionMesa","0"));
+        ObrasEsp.setText(misPreferencias.getString("ObrEspiritual","0"));
+        ObrasCorp.setText(misPreferencias.getString("ObrCorporal","0"));
+        Coronilla.setText(misPreferencias.getString("Coronilla","0"));
+        Caridad.setText(misPreferencias.getString("Caridad","0"));
+        PadreNuestro.setText(misPreferencias.getString("PadreNuestro","0"));
+        AveMaria.setText(misPreferencias.getString("AveMaria","0"));
+
         Toast toast = Toast.makeText(this, "Cargado", Toast.LENGTH_SHORT);
         toast.show();
 
@@ -152,6 +208,24 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = misPreferencias.edit();
         editor.putString("Misa",(String)((TextView) findViewById(R.id.txtContMisa)).getText());
+        editor.putString("Comunion",(String)((TextView) findViewById(R.id.txtContComunion)).getText());
+        editor.putString("ComunionEsp",(String)((TextView) findViewById(R.id.txtContComuEsp)).getText());
+        editor.putString("Rosario",(String)((TextView) findViewById(R.id.txtContRosa)).getText());
+        editor.putString("Sacrificio",(String)((TextView) findViewById(R.id.txtContSacri)).getText());
+        editor.putString("hrSanta",(String)((TextView) findViewById(R.id.txtContHrSanta)).getText());
+        editor.putString("ExamenConci",(String)((TextView) findViewById(R.id.txtContExaConci)).getText());
+        editor.putString("Confesion",(String)((TextView) findViewById(R.id.txtContConfe)).getText());
+        editor.putString("Biblia",(String)((TextView) findViewById(R.id.txtContBiblia)).getText());
+        editor.putString("HrServicio",(String)((TextView) findViewById(R.id.txtContHrsServi)).getText());
+        editor.putString("RosaMisio",(String)((TextView) findViewById(R.id.txtContRosaMisio)).getText());
+        editor.putString("Ayuno",(String)((TextView) findViewById(R.id.txtContAyuno)).getText());
+        editor.putString("BendicionMesa",(String)((TextView) findViewById(R.id.txtContBendicionMesa)).getText());
+        editor.putString("ObrEspiritual",(String)((TextView) findViewById(R.id.txtContObrasEsp)).getText());
+        editor.putString("ObrCorporal",(String)((TextView) findViewById(R.id.txtContObrasCorp)).getText());
+        editor.putString("Coronilla",(String)((TextView) findViewById(R.id.txtContCoronilla)).getText());
+        editor.putString("Caridad",(String)((TextView) findViewById(R.id.txtContCaridad)).getText());
+        editor.putString("PadreNuestro",(String)((TextView) findViewById(R.id.txtContPadreNuestro)).getText());
+        editor.putString("AveMaria",(String)((TextView) findViewById(R.id.txtContAveMaria)).getText());
 
         editor.commit();
 
@@ -253,6 +327,16 @@ public class MainActivity extends AppCompatActivity
                 cont--;
                 ((TextView) findViewById(R.id.txtContCaridad)).setText(""+cont);
                 break;
+            case R.id.restarPadreNuestro:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContPadreNuestro)).getText());
+                cont--;
+                ((TextView) findViewById(R.id.txtContPadreNuestro)).setText(""+cont);
+                break;
+            case R.id.restarAveMaria:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContAveMaria)).getText());
+                cont--;
+                ((TextView) findViewById(R.id.txtContAveMaria)).setText(""+cont);
+                break;
 
             /*********** Sumas ***********/
             case R.id.sumarMisa:
@@ -339,6 +423,16 @@ public class MainActivity extends AppCompatActivity
                 cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContCaridad)).getText());
                 cont++;
                 ((TextView) findViewById(R.id.txtContCaridad)).setText(""+cont);
+                break;
+            case R.id.sumarPadreNuestro:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContPadreNuestro)).getText());
+                cont++;
+                ((TextView) findViewById(R.id.txtContPadreNuestro)).setText(""+cont);
+                break;
+            case R.id.sumarAveMaria:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContAveMaria)).getText());
+                cont++;
+                ((TextView) findViewById(R.id.txtContAveMaria)).setText(""+cont);
                 break;
 
             default:Log.d("error","la condicion callo aqui");

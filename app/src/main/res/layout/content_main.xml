@@ -11,7 +11,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ramillete.sfj.ramilletesfj.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:background="@drawable/logo">
+
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtMisa"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -45,7 +48,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -80,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtComunion"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -91,7 +94,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
                 <Button
                     android:layout_height="40dp"
                     android:id="@+id/restarComunion"
@@ -124,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtComuEsp"
-                                      android:textSize="14sp"
+                                      android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -135,7 +138,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -167,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtRosarios"
 
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="normal|bold"
                 android:fontFamily="sans-serif" />
 
@@ -178,7 +181,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textAllCaps="false"
-                android:layout_width="90dp" />
+                android:layout_width="83dp" />
 
             <Button
                 android:layout_height="40dp"
@@ -206,12 +209,104 @@
                 android:layout_height="match_parent" >
 
                 <TextView
+                    android:text="Padres Nuestros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtPadreNuestro"
+
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="sans-serif" />
+
+                <TextView
+                    android:text="0"
+                    android:id="@+id/txtContPadreNuestro"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:layout_width="83dp" />
+
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/restarPadreNuestro"
+                    android:background="@drawable/restar"
+                    android:layout_width="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/sumarPadreNuestro"
+                    android:background="@drawable/sumar"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Aves Marias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtAveMaria"
+
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="sans-serif" />
+
+                <TextView
+                    android:text="0"
+                    android:id="@+id/txtContAveMaria"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:layout_width="83dp" />
+
+                <Button
+                    android:layout_height="40dp"
+                    android:id="@+id/restarAveMaria"
+                    android:background="@drawable/restar"
+                    android:layout_width="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/sumarAveMaria"
+                    android:background="@drawable/sumar"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
                     android:text="Sacrificios"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtSacrificios"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -222,7 +317,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -255,7 +350,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtHrSanta"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -266,7 +361,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -299,7 +394,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtExConci"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -310,7 +405,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -343,7 +438,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtConfe"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -354,7 +449,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -387,7 +482,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtBiblia"
 
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|bold"
                     android:fontFamily="sans-serif" />
 
@@ -398,7 +493,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -429,7 +524,9 @@
                     android:text="Hrs Servicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtHrsServicio" />
+                    android:id="@+id/txtHrsServicio"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -438,7 +535,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -469,7 +566,9 @@
                     android:text="Rosarios Misio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtRosarioMisio" />
+                    android:id="@+id/txtRosarioMisio"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -478,7 +577,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -509,7 +608,9 @@
                     android:text="Ayuno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtAyuno" />
+                    android:id="@+id/txtAyuno"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -518,7 +619,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
@@ -550,7 +651,9 @@
                     android:text="Bendición Alim."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtBendicionMesa" />
+                    android:id="@+id/txtBendicionMesa"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -590,7 +693,9 @@
                     android:text="Obras Esp."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtObrasEsp" />
+                    android:id="@+id/txtObrasEsp"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -631,7 +736,9 @@
                     android:text="Obras Corp."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtObrasCorp" />
+                    android:id="@+id/txtObrasCorp"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -671,7 +778,9 @@
                     android:text="Coronilla"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtCoronilla" />
+                    android:id="@+id/txtCoronilla"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -710,7 +819,9 @@
                     android:text="Caridad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtCaridad" />
+                    android:id="@+id/txtCaridad"
+                    android:textStyle="normal|bold"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:text="0"
@@ -719,7 +830,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
-                    android:layout_width="90dp" />
+                    android:layout_width="83dp" />
 
                 <Button
                     android:layout_height="40dp"
