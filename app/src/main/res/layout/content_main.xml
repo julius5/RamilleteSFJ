@@ -40,7 +40,7 @@
 
                 <TextView
                     android:text="0"
-                    android:id="@+id/txtConMisa"
+                    android:id="@+id/txtContMisa"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -61,7 +61,7 @@
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/sumaMisa"
+                    android:id="@+id/sumarMisa"
                     android:background="@drawable/sumar"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
@@ -95,7 +95,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaComu"
+                    android:id="@+id/restarComu"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -129,7 +129,7 @@
 
                 <TextView
                     android:text="0"
-                    android:id="@+id/txtcontComuEsp"
+                    android:id="@+id/txtContComuEsp"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -138,7 +138,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaComuEsp"
+                    android:id="@+id/restarComuEsp"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -181,7 +181,7 @@
 
             <Button
                 android:layout_height="40dp"
-                android:id="@+id/restaRosa"
+                android:id="@+id/restarRosa"
                 android:background="@drawable/restar"
                 android:layout_width="40dp"
                 android:layout_marginBottom="10dp"
@@ -225,7 +225,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaSacri"
+                    android:id="@+id/restarSacri"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -236,7 +236,7 @@
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/sumaSacri"
+                    android:id="@+id/sumarSacri"
                     android:background="@drawable/sumar"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
@@ -260,7 +260,7 @@
 
                 <TextView
                     android:text="0"
-                    android:id="@+id/txtcontHrSanta"
+                    android:id="@+id/txtContHrSanta"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -269,7 +269,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaHrSanta"
+                    android:id="@+id/restarHrSanta"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -313,7 +313,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaExaCon"
+                    android:id="@+id/restarExaConci"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -324,7 +324,7 @@
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/sumarExaCon"
+                    android:id="@+id/sumarExaConci"
                     android:background="@drawable/sumar"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
@@ -401,7 +401,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restaBil3"
+                    android:id="@+id/restarBiblia"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -441,7 +441,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restahrServi3"
+                    android:id="@+id/restarHrsServi"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -521,7 +521,7 @@
 
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/resrarAyuno"
+                    android:id="@+id/restarAyuno"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
@@ -555,7 +555,7 @@
                     android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textViewBendicionMesa"
+                    android:id="@+id/txtContBendicionMesa"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -595,7 +595,7 @@
                     android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtConObrasEsp."
+                    android:id="@+id/txtContObrasEsp"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -636,7 +636,7 @@
                     android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtContObrasCorp."
+                    android:id="@+id/txtContObrasCorp"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold" />
