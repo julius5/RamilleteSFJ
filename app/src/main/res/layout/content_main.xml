@@ -86,32 +86,33 @@
 
                 <TextView
                     android:text="0"
-                    android:id="@+id/txtContComu"
+                    android:id="@+id/txtContComunion"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"
                     android:layout_width="90dp" />
-
                 <Button
                     android:layout_height="40dp"
-                    android:id="@+id/restarComu"
+                    android:id="@+id/restarComunion"
                     android:background="@drawable/restar"
                     android:layout_width="40dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
 
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/sumarComu"
+                    android:id="@+id/sumarComunion"
                     android:background="@drawable/sumar"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:onClick="MiOnCreate (MainActivity)" />
 
             </TableRow>
             <TableRow

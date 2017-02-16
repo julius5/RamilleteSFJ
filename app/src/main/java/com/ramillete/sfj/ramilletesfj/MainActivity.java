@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity
         sumarMisa.setOnClickListener(this);
         Button restarMisa = (Button) findViewById(R.id.restaMisa);
         restarMisa.setOnClickListener(this);
-        Button sumarComu = (Button) findViewById(R.id.sumarComu);
-        sumarMisa.setOnClickListener(this);
-        Button restarComu = (Button) findViewById(R.id.restarComu);
-        restarMisa.setOnClickListener(this);
+        Button sumarComunion = (Button) findViewById(R.id.sumarComunion);
+        sumarComunion.setOnClickListener(this);
+        Button restarComunion = (Button) findViewById(R.id.restarComunion);
+        restarComunion.setOnClickListener(this);
         Button sumarComuEsp =(Button) findViewById(R.id.sumarComuEsp);
         sumarComuEsp.setOnClickListener(this);
         Button restarComuEsp = (Button) findViewById(R.id.restarComuEsp);
@@ -173,10 +173,10 @@ public class MainActivity extends AppCompatActivity
                 cont--;
                 ((TextView) findViewById(R.id.txtContMisa)).setText(""+cont);
                 break;
-            case R.id.restarComu:
-                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComu)).getText());
+            case R.id.restarComunion:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComunion)).getText());
                 cont--;
-                ((TextView) findViewById(R.id.txtContComu)).setText(""+cont);
+                ((TextView) findViewById(R.id.txtContComunion)).setText(""+cont);
                 break;
             case R.id.restarComuEsp:
                 cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComuEsp)).getText());
@@ -260,10 +260,10 @@ public class MainActivity extends AppCompatActivity
                 cont++;
                 ((TextView) findViewById(R.id.txtContMisa)).setText(""+cont);
                 break;
-            case R.id.sumarComu:
-                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComu)).getText());
+            case R.id.sumarComunion:
+                cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComunion)).getText());
                 cont++;
-                ((TextView) findViewById(R.id.txtContComu)).setText(""+cont);
+                ((TextView) findViewById(R.id.txtContComunion)).setText(""+cont);
                 break;
             case R.id.sumarComuEsp:
                 cont = Integer.parseInt((String)((TextView) findViewById(R.id.txtContComuEsp)).getText());
