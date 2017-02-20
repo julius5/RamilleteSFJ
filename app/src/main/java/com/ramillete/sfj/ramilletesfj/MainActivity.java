@@ -1,6 +1,7 @@
 package com.ramillete.sfj.ramilletesfj;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +25,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,9 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.regex.Pattern;
+
+import static com.ramillete.sfj.ramilletesfj.R.string.password;
+import static com.ramillete.sfj.ramilletesfj.R.string.username;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -539,10 +545,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.itm_AcercaDe) {
             //Boton acerca de
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Aplicación de ramillete para la pastoral juvenil...\n" +
-                    "@Version: Beta 1.0 \n" +
-                    "@Autor: Manuel García, Erick Martínez \n" +
-                    "@Copyrights: Pastoral Juvenil SFJ Chih.")
+            builder.setMessage("Ramillete para la pastoral juvenil de la parroquia de San Francisco Javier" +
+                    " Chihuahua, Mex. \n" +
+                    " - Beta 1.0 \n" +
+                    " - Autores: Erick Martínez, Manuel García \n" +
+                    " - ©2017 PastoralSFJ. All rights reserved")
                     .setCancelable(false)
                     .setNeutralButton("Aceptar",
                             new DialogInterface.OnClickListener() {
@@ -555,6 +562,33 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.itm_Configurar) {
             //Configuracion
 
+            Toast.makeText(MainActivity.this,"Opcion no implementada",Toast.LENGTH_SHORT).show();
+
+            /*
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+            View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
+            final EditText mUser = (EditText) mView.findViewById(R.id.username);
+            final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
+            Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
+
+            mSaveConfi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!mUser.getText().toString().isEmpty()
+                            && !mPhone.getText().toString().isEmpty()){
+                        Toast.makeText(MainActivity.this,"Configuración Guardada con exito",
+                                Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(MainActivity.this,"Porfavor Rellene los campos vacios",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            mBuilder.setView(mView);
+            AlertDialog dialog=mBuilder.create();
+            dialog.show();
+            3
+            */
         } else if (id == R.id.itm_Compartir) {
             //Intent intent = new Intent(Intent.ACTION_SEND);
             //intent.setType("text/plain");
@@ -594,11 +628,24 @@ public class MainActivity extends AppCompatActivity
                 sendIntent.setType("text/plain");
                 //sendIntent.putExtra(Intent.EXTRA_TEXT, "Hola erick este es un mensaje desde el ramillete directo a usted ;)");
 
+                // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
                 datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
-                datos = datos.replaceAll("[{|}]", "");
+                datos = datos.replaceAll("[{|}]", " ");
+                datos = datos.replaceAll("ComunionEsp", "Comunión Espiritual");
+                datos = datos.replaceAll("Comunion", "Comunión");
+                datos = datos.replaceAll("hrSanta", "Hora Santa");
+                datos = datos.replaceAll("ExamenConci", "Examen de Conciencia");
+                datos = datos.replaceAll("Confesion", "Confesión");
+                datos = datos.replaceAll("HrServicio", "Hrs. de Servicio");
+                datos = datos.replaceAll("RosaMisio", "Rosario Misionero");
+                datos = datos.replaceAll("BendicionMesa", "Bendicion de Mesa");
+                datos = datos.replaceAll("ObrCorporal", "Obrs de Misr Corporal");
+                datos = datos.replaceAll("ObrEspiritual", "Obrs de Misr Espiritual");
+                datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
+                datos = datos.replaceAll("AveMaria", "Aves Marias");
 
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Ramillete de Meny: \n\n"+datos);
-                //sendIntent.putExtra(Intent.EXTRA_TEXT, "Ramillete de Meny: \n hola");
+                //sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de "+username+": * \n"+datos);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de Meny*: \n"+datos);
                 sendIntent.putExtra("jid", smsNumber + "@s.whatsapp.net");//phone number without "+" prefix
                 sendIntent.setPackage("com.whatsapp");
                 startActivity(sendIntent);
