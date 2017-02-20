@@ -43,9 +43,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     public int cont = 0;
-    public TextView Misa, Comunion, ComuEsp, Rosa, Sacri, HrSanta, ExaConci, Confe, Biblia, HrsServicio, RosaMisio;
+    public TextView Misa, Comunion, ComuEsp, Rosa, Sacri, HrSanta, ExaConci, Confe, Biblia, HrsServicio, RosaMisio, Cel;
     public TextView Ayuno, BendicionMesa, ObrasEsp, ObrasCorp, Coronilla, Caridad, PadreNuestro, AveMaria;
     public String datos;
+    public String mCel,nombreUs;
 
     boolean cargar = false;
     /**
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity
 
 
         cargarPreferencias();
+        SharedPreferences misDatos = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+        //Cel.setText(misDatos.getString("Telefono", "6142276865"));
+        mCel=misDatos.getString("Telefono", "0");
+        nombreUs=misDatos.getString("Nombre", "0");
 
 
         //((TextView) findViewById(R.id.txtConMisa)).setText();
@@ -241,6 +246,7 @@ public class MainActivity extends AppCompatActivity
         Caridad.setText(misPreferencias.getString("Caridad", "0"));
         PadreNuestro.setText(misPreferencias.getString("PadreNuestro", "0"));
         AveMaria.setText(misPreferencias.getString("AveMaria", "0"));
+
 
         datos=misPreferencias.getAll().toString();
 
@@ -562,18 +568,28 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.itm_Configurar) {
             //Configuracion
 
-            Toast.makeText(MainActivity.this,"Opcion no implementada",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MainActivity.this,"Opcion no implementada",Toast.LENGTH_SHORT).show();
 
-            /*
+
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-            View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
+            final View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
             final EditText mUser = (EditText) mView.findViewById(R.id.username);
             final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
+            mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
+
             Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
 
             mSaveConfi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
+                    nombreUs =""+((EditText) mView.findViewById(R.id.username)).getText();
+                    SharedPreferences misPreferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = misPreferencias.edit();
+                    editor.putString("Telefono", mCel);
+                    editor.putString("Nombre", ""+nombreUs);
+                    editor.commit();
+
                     if(!mUser.getText().toString().isEmpty()
                             && !mPhone.getText().toString().isEmpty()){
                         Toast.makeText(MainActivity.this,"Configuración Guardada con exito",
@@ -587,8 +603,7 @@ public class MainActivity extends AppCompatActivity
             mBuilder.setView(mView);
             AlertDialog dialog=mBuilder.create();
             dialog.show();
-            3
-            */
+
         } else if (id == R.id.itm_Compartir) {
             //Intent intent = new Intent(Intent.ACTION_SEND);
             //intent.setType("text/plain");
@@ -620,7 +635,9 @@ public class MainActivity extends AppCompatActivity
             i.setPackage("com.whatsapp");
             startActivity(i);*/
 
-            String smsNumber = "5216142276865";//without '+'
+            String smsNumber = "521"+ mCel;
+            Log.d("valor",smsNumber);
+            // "5216142276865";//without '+'
             try {
                 Intent sendIntent = new Intent("android.intent.action.MAIN");
                 //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
@@ -628,6 +645,7 @@ public class MainActivity extends AppCompatActivity
                 sendIntent.setType("text/plain");
                 //sendIntent.putExtra(Intent.EXTRA_TEXT, "Hola erick este es un mensaje desde el ramillete directo a usted ;)");
 
+                cargarPreferencias();
                 // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
                 datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
                 datos = datos.replaceAll("[{|}]", " ");
@@ -645,7 +663,7 @@ public class MainActivity extends AppCompatActivity
                 datos = datos.replaceAll("AveMaria", "Aves Marias");
 
                 //sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de "+username+": * \n"+datos);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de Meny*: \n"+datos);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de " + nombreUs +"*: \n" +datos);
                 sendIntent.putExtra("jid", smsNumber + "@s.whatsapp.net");//phone number without "+" prefix
                 sendIntent.setPackage("com.whatsapp");
                 startActivity(sendIntent);
