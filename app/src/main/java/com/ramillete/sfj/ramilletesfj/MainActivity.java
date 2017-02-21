@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                onGuardar(1);
+                //onGuardar(1);
+
             }
         });
 
@@ -568,14 +569,18 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.itm_Configurar) {
             //Configuracion
 
+
            // Toast.makeText(MainActivity.this,"Opcion no implementada",Toast.LENGTH_SHORT).show();
 
 
-            AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+
+            final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
             final View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
-            final EditText mUser = (EditText) mView.findViewById(R.id.username);
+            final EditText mUser = (EditText) mView.findViewById(R.id.userNombre);
             final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
-            mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
+            mUser.setText(nombreUs);
+            mPhone.setText(mCel);
+
 
             Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
 
@@ -583,12 +588,15 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
                     mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
-                    nombreUs =""+((EditText) mView.findViewById(R.id.username)).getText();
+                    nombreUs =""+((EditText) mView.findViewById(R.id.userNombre)).getText();
                     SharedPreferences misPreferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = misPreferencias.edit();
                     editor.putString("Telefono", mCel);
                     editor.putString("Nombre", ""+nombreUs);
                     editor.commit();
+                    Intent ListSong = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(ListSong);
+                    finish();
 
                     if(!mUser.getText().toString().isEmpty()
                             && !mPhone.getText().toString().isEmpty()){
@@ -599,10 +607,13 @@ public class MainActivity extends AppCompatActivity
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
+
             });
             mBuilder.setView(mView);
             AlertDialog dialog=mBuilder.create();
             dialog.show();
+
+
 
         } else if (id == R.id.itm_Compartir) {
             //Intent intent = new Intent(Intent.ACTION_SEND);
@@ -613,16 +624,53 @@ public class MainActivity extends AppCompatActivity
             //intent.putExtra(Intent.EXTRA_SUBJECT, subject);
             //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
+
+            cargarPreferencias();
+            // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
+            datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
+            datos = datos.replaceAll("[{|}]", " ");
+            datos = datos.replaceAll("ComunionEsp", "Comunión Espiritual");
+            datos = datos.replaceAll("Comunion", "Comunión");
+            datos = datos.replaceAll("hrSanta", "Hora Santa");
+            datos = datos.replaceAll("ExamenConci", "Examen de Conciencia");
+            datos = datos.replaceAll("Confesion", "Confesión");
+            datos = datos.replaceAll("HrServicio", "Hrs. de Servicio");
+            datos = datos.replaceAll("RosaMisio", "Rosario Misionero");
+            datos = datos.replaceAll("BendicionMesa", "Bendicion de Mesa");
+            datos = datos.replaceAll("ObrCorporal", "Obrs de Misr Corporal");
+            datos = datos.replaceAll("ObrEspiritual", "Obrs de Misr Espiritual");
+            datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
+            datos = datos.replaceAll("AveMaria", "Aves Marias");
+
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","insert your email here", null));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramillete de "+nombreUs);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, ""+ datos);
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
             /*
-            Intent sendIntent = new Intent();
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setData(Uri.parse("mailto:"));
+            //String[] to = direccionesEmail;
+            //String[] cc = copias;
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "kcirex@gmail.com");
+            emailIntent.putExtra(Intent.EXTRA_CC, cc);
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramillete de "+ nombreUs);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, ""+ datos);
+            emailIntent.setType("message/rfc822");
+            startActivity(Intent.createChooser(emailIntent, "Selecciona Aplicacion"));
+            */
+
+
+           /* Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
             sendIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, "+5216142276865");
             sendIntent.putExtra(Intent.EXTRA_USER, "+5216142276865");
-            sendIntent.setPackage("com.whatsapp");
-            sendIntent.setType("text/plain");
+            //sendIntent.setPackage("com.gmail");
+            sendIntent.setType("message/rfc822");
             startActivity(Intent.createChooser(sendIntent, "manuelg.uk@gmail.com"));
-            */
+*/
 
             //this.startActivity(Intent.createChooser(intent,  "Compartir en" ));
             //startActivity(intent);
