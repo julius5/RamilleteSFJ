@@ -1,20 +1,16 @@
 package com.ramillete.sfj.ramilletesfj;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,11 +30,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.regex.Pattern;
-
-import static com.ramillete.sfj.ramilletesfj.R.string.password;
-import static com.ramillete.sfj.ramilletesfj.R.string.username;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -46,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     public TextView Misa, Comunion, ComuEsp, Rosa, Sacri, HrSanta, ExaConci, Confe, Biblia, HrsServicio, RosaMisio, Cel;
     public TextView Ayuno, BendicionMesa, ObrasEsp, ObrasCorp, Coronilla, Caridad, PadreNuestro, AveMaria;
     public String datos;
-    public String mCel,nombreUs;
+    public String mCel,nombreUs, correo;
 
     boolean cargar = false;
     /**
@@ -90,9 +81,9 @@ public class MainActivity extends AppCompatActivity
         cargarPreferencias();
         SharedPreferences misDatos = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
         //Cel.setText(misDatos.getString("Telefono", "6142276865"));
-        mCel=misDatos.getString("Telefono", "0");
-        nombreUs=misDatos.getString("Nombre", "0");
-
+        mCel=misDatos.getString("Telefono", "");
+        nombreUs=misDatos.getString("Nombre", "");
+        correo=misDatos.getString("email","");
 
         //((TextView) findViewById(R.id.txtConMisa)).setText();
 
@@ -545,6 +536,10 @@ public class MainActivity extends AppCompatActivity
             resTodo();
         } else if (id == R.id.itm_Ejercicios) {
             //Opcion de Ejercicios Espirituales
+            Intent ListSong = new Intent(getApplicationContext(), ejercicios_esp.class);
+            startActivity(ListSong);
+            finish();
+
 
         } else if (id == R.id.itm_Guardar) {
             //Opcion de guardar
@@ -566,6 +561,11 @@ public class MainActivity extends AppCompatActivity
                             });
             AlertDialog alert = builder.create();
             alert.show();
+        }  else if (id == R.id.itm_instrucciones){
+
+
+            //Pendiente de configurar
+
         } else if (id == R.id.itm_Configurar) {
             //Configuracion
 
@@ -578,8 +578,10 @@ public class MainActivity extends AppCompatActivity
             final View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
             final EditText mUser = (EditText) mView.findViewById(R.id.userNombre);
             final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
+            final EditText mCorreo = (EditText) mView.findViewById(R.id.correo);
             mUser.setText(nombreUs);
             mPhone.setText(mCel);
+            mCorreo.setText(correo);
 
 
             Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
@@ -589,10 +591,12 @@ public class MainActivity extends AppCompatActivity
                 public void onClick(View v) {
                     mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
                     nombreUs =""+((EditText) mView.findViewById(R.id.userNombre)).getText();
+                    correo = ""+((EditText) mView.findViewById(R.id.correo)).getText();
                     SharedPreferences misPreferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = misPreferencias.edit();
                     editor.putString("Telefono", mCel);
                     editor.putString("Nombre", ""+nombreUs);
+                    editor.putString("email", ""+correo);
                     editor.commit();
                     Intent ListSong = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(ListSong);
@@ -642,11 +646,14 @@ public class MainActivity extends AppCompatActivity
             datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
             datos = datos.replaceAll("AveMaria", "Aves Marias");
 
+
+
+
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto","insert your email here", null));
+                    "mailto",correo, null));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramillete de "+nombreUs);
             emailIntent.putExtra(Intent.EXTRA_TEXT, ""+ datos);
-            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+            startActivity(Intent.createChooser(emailIntent, "Selecciona Aplicación"));
 
             /*
             Intent emailIntent = new Intent(Intent.ACTION_SEND);

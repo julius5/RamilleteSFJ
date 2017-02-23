@@ -19,6 +19,10 @@
             android:icon="@android:drawable/ic_menu_info_details"
             android:title="Acerca de" />
         <item
+            android:id="@+id/itm_instrucciones"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Tutorial" />
+        <item
             android:id="@+id/itm_Configurar"
             android:icon="@drawable/ic_menu_manage"
             android:title="Configuración" />
