@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,25 +33,28 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                regresar();
+            }
+        });
+
         ejercicios = (TextView) findViewById(R.id.textViewEjercicios);
-
-
         spSemana = (Spinner) findViewById(R.id.spinnerSemana);
         spDia = (Spinner) findViewById(R.id.spinnerDia);
-
         spSemana.setOnItemSelectedListener(this);
         spDia.setOnItemSelectedListener(this);
-//Estilos de Spinners
+        //Estilos de Spinners
         //aaSemana = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opSemana);
         aaSemana = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,opSemana);
         aaDia = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opDia);
-
-
         spSemana.setAdapter(aaSemana);
        // spDia.setAdapter(aaDia);
 
    }
-//ejercicios.setText("Hola Mundo desde 1");
+
+    //ejercicios.setText("Hola Mundo desde 1");
     //spDia.setAdapter(aaDia);
     //int selecc = spSemana.getSelectedItemPosition();
     @Override
@@ -164,5 +169,42 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+    }
+
+    /**
+     * Opcion para regresar
+     */
+    private void regresar() {
+        Intent ListSong = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(ListSong);
+        finish();
+    }
+
+    /**
+     * Este es el menu
+     * @param menu este es donde configuramos el archivo .xml del menu que creamos
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_ejercicios_drawer, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.menu_Regresar) {
+            //return true;
+            regresar();
+        }else if(id == R.id.menu_Salir) {
+            //return true;
+            System.exit(0);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

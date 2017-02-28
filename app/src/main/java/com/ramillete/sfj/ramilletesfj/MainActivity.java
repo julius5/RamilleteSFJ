@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //onGuardar(1);
+                onGuardar(1);
 
             }
         });
@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    /**
+     * Metodo que crea los botones
+     */
     public void declarbotones() {
         Button sumarMisa = (Button) findViewById(R.id.sumarMisa);
         sumarMisa.setOnClickListener(this);
@@ -172,116 +175,10 @@ public class MainActivity extends AppCompatActivity
         restarAveMaria.setOnClickListener(this);
     }
 
-    public void resTodo() {
-        ((TextView) findViewById(R.id.txtContMisa)).setText("0");
-        ((TextView) findViewById(R.id.txtContComunion)).setText("0");
-        ((TextView) findViewById(R.id.txtContComuEsp)).setText("0");
-        ((TextView) findViewById(R.id.txtContRosa)).setText("0");
-        ((TextView) findViewById(R.id.txtContSacri)).setText("0");
-        ((TextView) findViewById(R.id.txtContHrSanta)).setText("0");
-        ((TextView) findViewById(R.id.txtContExaConci)).setText("0");
-        ((TextView) findViewById(R.id.txtContConfe)).setText("0");
-        ((TextView) findViewById(R.id.txtContBiblia)).setText("0");
-        ((TextView) findViewById(R.id.txtContHrsServi)).setText("0");
-        ((TextView) findViewById(R.id.txtContRosaMisio)).setText("0");
-        ((TextView) findViewById(R.id.txtContAyuno)).setText("0");
-        ((TextView) findViewById(R.id.txtContBendicionMesa)).setText("0");
-        ((TextView) findViewById(R.id.txtContObrasEsp)).setText("0");
-        ((TextView) findViewById(R.id.txtContObrasCorp)).setText("0");
-        ((TextView) findViewById(R.id.txtContCoronilla)).setText("0");
-        ((TextView) findViewById(R.id.txtContCaridad)).setText("0");
-        ((TextView) findViewById(R.id.txtContPadreNuestro)).setText("0");
-        ((TextView) findViewById(R.id.txtContAveMaria)).setText("0");
-        onGuardar(2);
-    }
-
-    private void cargarPreferencias() {
-
-        Misa = (TextView) findViewById(R.id.txtContMisa);
-        Comunion = (TextView) findViewById(R.id.txtContComunion);
-        ComuEsp = (TextView) findViewById(R.id.txtContComuEsp);
-        Rosa = (TextView) findViewById(R.id.txtContRosa);
-        Sacri = (TextView) findViewById(R.id.txtContSacri);
-        HrSanta = (TextView) findViewById(R.id.txtContHrSanta);
-        ExaConci = (TextView) findViewById(R.id.txtContExaConci);
-        Confe = (TextView) findViewById(R.id.txtContConfe);
-        Biblia = (TextView) findViewById(R.id.txtContBiblia);
-        HrsServicio = (TextView) findViewById(R.id.txtContHrsServi);
-        RosaMisio = (TextView) findViewById(R.id.txtContRosaMisio);
-        Ayuno = (TextView) findViewById(R.id.txtContAyuno);
-        BendicionMesa = (TextView) findViewById(R.id.txtContBendicionMesa);
-        ObrasEsp = (TextView) findViewById(R.id.txtContObrasEsp);
-        ObrasCorp = (TextView) findViewById(R.id.txtContObrasCorp);
-        Coronilla = (TextView) findViewById(R.id.txtContCoronilla);
-        Caridad = (TextView) findViewById(R.id.txtContCaridad);
-        PadreNuestro = (TextView) findViewById(R.id.txtContPadreNuestro);
-        AveMaria = (TextView) findViewById(R.id.txtContAveMaria);
-
-        SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
-
-        Misa.setText(misPreferencias.getString("Misa", "0"));
-        Comunion.setText(misPreferencias.getString("Comunion", "0"));
-        ComuEsp.setText(misPreferencias.getString("ComunionEsp", "0"));
-        Rosa.setText(misPreferencias.getString("Rosario", "0"));
-        Sacri.setText(misPreferencias.getString("Sacrificio", "0"));
-        HrSanta.setText(misPreferencias.getString("hrSanta", "0"));
-        ExaConci.setText(misPreferencias.getString("ExamenConci", "0"));
-        Confe.setText(misPreferencias.getString("Confesion", "0"));
-        Biblia.setText(misPreferencias.getString("Biblia", "0"));
-        HrsServicio.setText(misPreferencias.getString("HrServicio", "0"));
-        RosaMisio.setText(misPreferencias.getString("RosaMisio", "0"));
-        Ayuno.setText(misPreferencias.getString("Ayuno", "0"));
-        BendicionMesa.setText(misPreferencias.getString("BendicionMesa", "0"));
-        ObrasEsp.setText(misPreferencias.getString("ObrEspiritual", "0"));
-        ObrasCorp.setText(misPreferencias.getString("ObrCorporal", "0"));
-        Coronilla.setText(misPreferencias.getString("Coronilla", "0"));
-        Caridad.setText(misPreferencias.getString("Caridad", "0"));
-        PadreNuestro.setText(misPreferencias.getString("PadreNuestro", "0"));
-        AveMaria.setText(misPreferencias.getString("AveMaria", "0"));
-
-
-        datos=misPreferencias.getAll().toString();
-
-        Toast toast = Toast.makeText(this, "Cargado", Toast.LENGTH_SHORT);
-        toast.show();
-
-    }
-
-    public void onGuardar(int f) {
-
-        SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = misPreferencias.edit();
-        editor.putString("Misa", (String) ((TextView) findViewById(R.id.txtContMisa)).getText());
-        editor.putString("Comunion", (String) ((TextView) findViewById(R.id.txtContComunion)).getText());
-        editor.putString("ComunionEsp", (String) ((TextView) findViewById(R.id.txtContComuEsp)).getText());
-        editor.putString("Rosario", (String) ((TextView) findViewById(R.id.txtContRosa)).getText());
-        editor.putString("Sacrificio", (String) ((TextView) findViewById(R.id.txtContSacri)).getText());
-        editor.putString("hrSanta", (String) ((TextView) findViewById(R.id.txtContHrSanta)).getText());
-        editor.putString("ExamenConci", (String) ((TextView) findViewById(R.id.txtContExaConci)).getText());
-        editor.putString("Confesion", (String) ((TextView) findViewById(R.id.txtContConfe)).getText());
-        editor.putString("Biblia", (String) ((TextView) findViewById(R.id.txtContBiblia)).getText());
-        editor.putString("HrServicio", (String) ((TextView) findViewById(R.id.txtContHrsServi)).getText());
-        editor.putString("RosaMisio", (String) ((TextView) findViewById(R.id.txtContRosaMisio)).getText());
-        editor.putString("Ayuno", (String) ((TextView) findViewById(R.id.txtContAyuno)).getText());
-        editor.putString("BendicionMesa", (String) ((TextView) findViewById(R.id.txtContBendicionMesa)).getText());
-        editor.putString("ObrEspiritual", (String) ((TextView) findViewById(R.id.txtContObrasEsp)).getText());
-        editor.putString("ObrCorporal", (String) ((TextView) findViewById(R.id.txtContObrasCorp)).getText());
-        editor.putString("Coronilla", (String) ((TextView) findViewById(R.id.txtContCoronilla)).getText());
-        editor.putString("Caridad", (String) ((TextView) findViewById(R.id.txtContCaridad)).getText());
-        editor.putString("PadreNuestro", (String) ((TextView) findViewById(R.id.txtContPadreNuestro)).getText());
-        editor.putString("AveMaria", (String) ((TextView) findViewById(R.id.txtContAveMaria)).getText());
-
-        editor.commit();
-
-        if (f == 1) {
-            Toast toast = Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT);
-            toast.show();
-        } else if (f == 2) {
-            Toast toast = Toast.makeText(this, "Datos eliminados", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
+    /**
+     * Metodo que asigna el onClick a los botones
+     * @param v
+     */
     public void onClick(View v) {
         switch (v.getId()) {
             /*********** Restas ***********/
@@ -505,14 +402,22 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        /**
+         * noinspection SimplifiableIfStatement
+         * Esto de aqui es el menu de la derecha
+         */
         if (id == R.id.action_settings) {
-            return true;
+            //return true;
+            configuracion();
+        }else if (id == R.id.menuContacto){
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","pastoral.juvenil.sfj@gmail.com", null));
+            startActivity(Intent.createChooser(emailIntent, "Selecciona Aplicación"));
+        }else if (id == R.id.menuInfo){
+            acercade();
         }
 
         return super.onOptionsItemSelected(item);
@@ -528,7 +433,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.itm_Reiniciar) {
@@ -545,89 +450,52 @@ public class MainActivity extends AppCompatActivity
             //Opcion de guardar
             onGuardar(1);
         } else if (id == R.id.itm_AcercaDe) {
-            //Boton acerca de
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Ramillete para la pastoral juvenil de la parroquia de San Francisco Javier" +
-                    " Chihuahua, Mex. \n" +
-                    " - Beta 1.0 \n" +
-                    " - Autores: Erick Martínez, Manuel García \n" +
-                    " - ©2017 PastoralSFJ. All rights reserved")
-                    .setCancelable(false)
-                    .setNeutralButton("Aceptar",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-            AlertDialog alert = builder.create();
-            alert.show();
+            acercade();
         }  else if (id == R.id.itm_instrucciones){
-
-
-            //Pendiente de configurar
-
+            instrucciones();
         } else if (id == R.id.itm_Configurar) {
             //Configuracion
-
-
            // Toast.makeText(MainActivity.this,"Opcion no implementada",Toast.LENGTH_SHORT).show();
-
-
-
-            final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-            final View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
-            final EditText mUser = (EditText) mView.findViewById(R.id.userNombre);
-            final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
-            final EditText mCorreo = (EditText) mView.findViewById(R.id.correo);
-            mUser.setText(nombreUs);
-            mPhone.setText(mCel);
-            mCorreo.setText(correo);
-
-
-            Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
-
-            mSaveConfi.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
-                    nombreUs =""+((EditText) mView.findViewById(R.id.userNombre)).getText();
-                    correo = ""+((EditText) mView.findViewById(R.id.correo)).getText();
-                    SharedPreferences misPreferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = misPreferencias.edit();
-                    editor.putString("Telefono", mCel);
-                    editor.putString("Nombre", ""+nombreUs);
-                    editor.putString("email", ""+correo);
-                    editor.commit();
-                    Intent ListSong = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(ListSong);
-                    finish();
-
-                    if(!mUser.getText().toString().isEmpty()
-                            && !mPhone.getText().toString().isEmpty()){
-                        Toast.makeText(MainActivity.this,"Configuración Guardada con exito",
-                                Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(MainActivity.this,"Porfavor Rellene los campos vacios",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-            });
-            mBuilder.setView(mView);
-            AlertDialog dialog=mBuilder.create();
-            dialog.show();
-
-
-
+            configuracion();
         } else if (id == R.id.itm_Compartir) {
-            //Intent intent = new Intent(Intent.ACTION_SEND);
-            //intent.setType("text/plain");
-            //intent.putExtra(Intent.EXTRA_TEXT, cargarPreferencias());
-            //intent.setPackage("com.facebook.katana");
-            //startActivity(Intent.createChooser(intent, "Share with"));
-            //intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            compartir();
+        } else if (id == R.id.itm_Enviar) {
+            enviar();
+        } else if (id == R.id.itm_Salir) {
+            System.exit(0);
+            //finish();
+            //finishAffinity();
+        }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    /*********************************************************************************************
+     *                                         METODOS
+     ********************************************************************************************/
+
+    /**
+     * Metodo para enviar la informacion por whatsapp
+     */
+    private void enviar() {
+          /*Uri uri = Uri.parse("smsto:" + "+5216142276865");
+            Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+            i.putExtra("sms_body", "hola erick este es un mensaje desde el ramillete directo a usted ;)");
+            i.putExtra(Intent.EXTRA_TEXT, "hola erick este es un mensaje desde el ramillete directo a usted ;)");
+            i.setPackage("com.whatsapp");
+            startActivity(i);*/
+
+        String smsNumber = "521"+ mCel;
+        Log.d("valor",smsNumber);
+        // "5216142276865";//without '+'
+        try {
+            Intent sendIntent = new Intent("android.intent.action.MAIN");
+            //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setType("text/plain");
+            //sendIntent.putExtra(Intent.EXTRA_TEXT, "Hola erick este es un mensaje desde el ramillete directo a usted ;)");
 
             cargarPreferencias();
             // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
@@ -646,14 +514,53 @@ public class MainActivity extends AppCompatActivity
             datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
             datos = datos.replaceAll("AveMaria", "Aves Marias");
 
+            //sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de "+username+": * \n"+datos);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de " + nombreUs +"*: \n" +datos);
+            sendIntent.putExtra("jid", smsNumber + "@s.whatsapp.net");//phone number without "+" prefix
+            sendIntent.setPackage("com.whatsapp");
+            startActivity(sendIntent);
+        } catch(Exception e) {
 
+            Toast.makeText(this, "Error/n" + e.toString(),
+                    Toast.LENGTH_SHORT).show();
 
+        }
+    }
 
-            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto",correo, null));
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramillete de "+nombreUs);
-            emailIntent.putExtra(Intent.EXTRA_TEXT, ""+ datos);
-            startActivity(Intent.createChooser(emailIntent, "Selecciona Aplicación"));
+    /**
+     * Metodo para enviar la informacion por correo
+     */
+    private void compartir() {
+        //Intent intent = new Intent(Intent.ACTION_SEND);
+        //intent.setType("text/plain");
+        //intent.putExtra(Intent.EXTRA_TEXT, cargarPreferencias());
+        //intent.setPackage("com.facebook.katana");
+        //startActivity(Intent.createChooser(intent, "Share with"));
+        //intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        cargarPreferencias();
+        // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
+        datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
+        datos = datos.replaceAll("[{|}]", " ");
+        datos = datos.replaceAll("ComunionEsp", "Comunión Espiritual");
+        datos = datos.replaceAll("Comunion", "Comunión");
+        datos = datos.replaceAll("hrSanta", "Hora Santa");
+        datos = datos.replaceAll("ExamenConci", "Examen de Conciencia");
+        datos = datos.replaceAll("Confesion", "Confesión");
+        datos = datos.replaceAll("HrServicio", "Hrs. de Servicio");
+        datos = datos.replaceAll("RosaMisio", "Rosario Misionero");
+        datos = datos.replaceAll("BendicionMesa", "Bendicion de Mesa");
+        datos = datos.replaceAll("ObrCorporal", "Obrs de Misr Corporal");
+        datos = datos.replaceAll("ObrEspiritual", "Obrs de Misr Espiritual");
+        datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
+        datos = datos.replaceAll("AveMaria", "Aves Marias");
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto",correo, null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ramillete de "+nombreUs);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, ""+ datos);
+        startActivity(Intent.createChooser(emailIntent, "Selecciona Aplicación"));
 
             /*
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -677,71 +584,223 @@ public class MainActivity extends AppCompatActivity
             //sendIntent.setPackage("com.gmail");
             sendIntent.setType("message/rfc822");
             startActivity(Intent.createChooser(sendIntent, "manuelg.uk@gmail.com"));
-*/
+            */
 
             //this.startActivity(Intent.createChooser(intent,  "Compartir en" ));
             //startActivity(intent);
-
-        } else if (id == R.id.itm_Enviar) {
-            /*Uri uri = Uri.parse("smsto:" + "+5216142276865");
-            Intent i = new Intent(Intent.ACTION_SENDTO, uri);
-            i.putExtra("sms_body", "hola erick este es un mensaje desde el ramillete directo a usted ;)");
-            i.putExtra(Intent.EXTRA_TEXT, "hola erick este es un mensaje desde el ramillete directo a usted ;)");
-            i.setPackage("com.whatsapp");
-            startActivity(i);*/
-
-            String smsNumber = "521"+ mCel;
-            Log.d("valor",smsNumber);
-            // "5216142276865";//without '+'
-            try {
-                Intent sendIntent = new Intent("android.intent.action.MAIN");
-                //sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.setType("text/plain");
-                //sendIntent.putExtra(Intent.EXTRA_TEXT, "Hola erick este es un mensaje desde el ramillete directo a usted ;)");
-
-                cargarPreferencias();
-                // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
-                datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
-                datos = datos.replaceAll("[{|}]", " ");
-                datos = datos.replaceAll("ComunionEsp", "Comunión Espiritual");
-                datos = datos.replaceAll("Comunion", "Comunión");
-                datos = datos.replaceAll("hrSanta", "Hora Santa");
-                datos = datos.replaceAll("ExamenConci", "Examen de Conciencia");
-                datos = datos.replaceAll("Confesion", "Confesión");
-                datos = datos.replaceAll("HrServicio", "Hrs. de Servicio");
-                datos = datos.replaceAll("RosaMisio", "Rosario Misionero");
-                datos = datos.replaceAll("BendicionMesa", "Bendicion de Mesa");
-                datos = datos.replaceAll("ObrCorporal", "Obrs de Misr Corporal");
-                datos = datos.replaceAll("ObrEspiritual", "Obrs de Misr Espiritual");
-                datos = datos.replaceAll("PadreNuestro", "Padres Nuestros");
-                datos = datos.replaceAll("AveMaria", "Aves Marias");
-
-                //sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de "+username+": * \n"+datos);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "*Ramillete de " + nombreUs +"*: \n" +datos);
-                sendIntent.putExtra("jid", smsNumber + "@s.whatsapp.net");//phone number without "+" prefix
-                sendIntent.setPackage("com.whatsapp");
-                startActivity(sendIntent);
-            } catch(Exception e) {
-
-                Toast.makeText(this, "Error/n" + e.toString(),
-                        Toast.LENGTH_SHORT).show();
-
-            }
-
-        } else if (id == R.id.itm_Salir) {
-            System.exit(0);
-            //finish();
-            //finishAffinity();
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
+    /**
+     * Metodo que te da las instrucciones de uso
+     */
+    private void instrucciones() {
+        //Boton acerca de
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("1- Entra a la opción de configuración." +
+                "\n\n 2- Ingresa tu nombre de usuario eje. Meny." +
+                "\n\n 3- Ingresa el teléfono del contacto de WhatsApp al que vas a enviar" +
+                " los datos del ramillete." +
+                "\n\n 4- Ingresa el correo del contacto al que vas a enviar los datos del ramillete" +
+                "\n\n 5- Agrega o quita tus actividades semanales en el ramillete." +
+                "\n\n 6- Al finalizar la semana/mes envía los datos a tu contacto y resetea la app" +
+                " con la opción de reiniciar.")
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
     /**
+     * Metodo que te muestra la informacion de la aplicacion
+     */
+    private void acercade() {
+        //Boton acerca de
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Ramillete para la pastoral juvenil de la parroquia de San Francisco Javier" +
+                " Chihuahua, Mex. \n\n" +
+                " - Ver. 1.0 \n" +
+                " - Autores: \n     Erick Martínez" +
+                " \n     Manuel García \n" +
+                " \n -Contacto: \n    Pastoral.juvenil.sfj@gmail.com"+
+                " \n\n ©2017 PastoralSFJ. All rights reserved")
+                .setCancelable(false)
+                .setNeutralButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    /**
+     * Metodo para configurar la opcion de enviar
+     * @userName nombre de usuario
+     * @Phone telefono a enviar
+     * @Correo correo a enviar
+     */
+    private void configuracion() {
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        final View mView = getLayoutInflater().inflate(R.layout.configuracion,null);
+        final EditText mUser = (EditText) mView.findViewById(R.id.userNombre);
+        final EditText mPhone = (EditText) mView.findViewById(R.id.phone);
+        final EditText mCorreo = (EditText) mView.findViewById(R.id.correo);
+        mUser.setText(nombreUs);
+        mPhone.setText(mCel);
+        mCorreo.setText(correo);
+
+
+        Button mSaveConfi = (Button) mView.findViewById(R.id.btnSaveConfig);
+
+        mSaveConfi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCel= ""+((EditText) mView.findViewById(R.id.phone)).getText();
+                nombreUs =""+((EditText) mView.findViewById(R.id.userNombre)).getText();
+                correo = ""+((EditText) mView.findViewById(R.id.correo)).getText();
+                SharedPreferences misPreferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = misPreferencias.edit();
+                editor.putString("Telefono", mCel);
+                editor.putString("Nombre", ""+nombreUs);
+                editor.putString("email", ""+correo);
+                editor.commit();
+                Intent ListSong = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(ListSong);
+                finish();
+
+                if(!mUser.getText().toString().isEmpty()
+                        && !mPhone.getText().toString().isEmpty()){
+                    Toast.makeText(MainActivity.this,"Configuración Guardada con exito",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this,"Porfavor Rellene los campos vacios",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+        mBuilder.setView(mView);
+        AlertDialog dialog=mBuilder.create();
+        dialog.show();
+    }
+
+    public void resTodo() {
+        ((TextView) findViewById(R.id.txtContMisa)).setText("0");
+        ((TextView) findViewById(R.id.txtContComunion)).setText("0");
+        ((TextView) findViewById(R.id.txtContComuEsp)).setText("0");
+        ((TextView) findViewById(R.id.txtContRosa)).setText("0");
+        ((TextView) findViewById(R.id.txtContSacri)).setText("0");
+        ((TextView) findViewById(R.id.txtContHrSanta)).setText("0");
+        ((TextView) findViewById(R.id.txtContExaConci)).setText("0");
+        ((TextView) findViewById(R.id.txtContConfe)).setText("0");
+        ((TextView) findViewById(R.id.txtContBiblia)).setText("0");
+        ((TextView) findViewById(R.id.txtContHrsServi)).setText("0");
+        ((TextView) findViewById(R.id.txtContRosaMisio)).setText("0");
+        ((TextView) findViewById(R.id.txtContAyuno)).setText("0");
+        ((TextView) findViewById(R.id.txtContBendicionMesa)).setText("0");
+        ((TextView) findViewById(R.id.txtContObrasEsp)).setText("0");
+        ((TextView) findViewById(R.id.txtContObrasCorp)).setText("0");
+        ((TextView) findViewById(R.id.txtContCoronilla)).setText("0");
+        ((TextView) findViewById(R.id.txtContCaridad)).setText("0");
+        ((TextView) findViewById(R.id.txtContPadreNuestro)).setText("0");
+        ((TextView) findViewById(R.id.txtContAveMaria)).setText("0");
+        onGuardar(2);
+    }
+
+    private void cargarPreferencias() {
+
+        Misa = (TextView) findViewById(R.id.txtContMisa);
+        Comunion = (TextView) findViewById(R.id.txtContComunion);
+        ComuEsp = (TextView) findViewById(R.id.txtContComuEsp);
+        Rosa = (TextView) findViewById(R.id.txtContRosa);
+        Sacri = (TextView) findViewById(R.id.txtContSacri);
+        HrSanta = (TextView) findViewById(R.id.txtContHrSanta);
+        ExaConci = (TextView) findViewById(R.id.txtContExaConci);
+        Confe = (TextView) findViewById(R.id.txtContConfe);
+        Biblia = (TextView) findViewById(R.id.txtContBiblia);
+        HrsServicio = (TextView) findViewById(R.id.txtContHrsServi);
+        RosaMisio = (TextView) findViewById(R.id.txtContRosaMisio);
+        Ayuno = (TextView) findViewById(R.id.txtContAyuno);
+        BendicionMesa = (TextView) findViewById(R.id.txtContBendicionMesa);
+        ObrasEsp = (TextView) findViewById(R.id.txtContObrasEsp);
+        ObrasCorp = (TextView) findViewById(R.id.txtContObrasCorp);
+        Coronilla = (TextView) findViewById(R.id.txtContCoronilla);
+        Caridad = (TextView) findViewById(R.id.txtContCaridad);
+        PadreNuestro = (TextView) findViewById(R.id.txtContPadreNuestro);
+        AveMaria = (TextView) findViewById(R.id.txtContAveMaria);
+
+        SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
+
+        Misa.setText(misPreferencias.getString("Misa", "0"));
+        Comunion.setText(misPreferencias.getString("Comunion", "0"));
+        ComuEsp.setText(misPreferencias.getString("ComunionEsp", "0"));
+        Rosa.setText(misPreferencias.getString("Rosario", "0"));
+        Sacri.setText(misPreferencias.getString("Sacrificio", "0"));
+        HrSanta.setText(misPreferencias.getString("hrSanta", "0"));
+        ExaConci.setText(misPreferencias.getString("ExamenConci", "0"));
+        Confe.setText(misPreferencias.getString("Confesion", "0"));
+        Biblia.setText(misPreferencias.getString("Biblia", "0"));
+        HrsServicio.setText(misPreferencias.getString("HrServicio", "0"));
+        RosaMisio.setText(misPreferencias.getString("RosaMisio", "0"));
+        Ayuno.setText(misPreferencias.getString("Ayuno", "0"));
+        BendicionMesa.setText(misPreferencias.getString("BendicionMesa", "0"));
+        ObrasEsp.setText(misPreferencias.getString("ObrEspiritual", "0"));
+        ObrasCorp.setText(misPreferencias.getString("ObrCorporal", "0"));
+        Coronilla.setText(misPreferencias.getString("Coronilla", "0"));
+        Caridad.setText(misPreferencias.getString("Caridad", "0"));
+        PadreNuestro.setText(misPreferencias.getString("PadreNuestro", "0"));
+        AveMaria.setText(misPreferencias.getString("AveMaria", "0"));
+
+
+        datos=misPreferencias.getAll().toString();
+
+        Toast toast = Toast.makeText(this, "Cargado", Toast.LENGTH_SHORT);
+        toast.show();
+
+    }
+
+    public void onGuardar(int f) {
+
+        SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = misPreferencias.edit();
+        editor.putString("Misa", (String) ((TextView) findViewById(R.id.txtContMisa)).getText());
+        editor.putString("Comunion", (String) ((TextView) findViewById(R.id.txtContComunion)).getText());
+        editor.putString("ComunionEsp", (String) ((TextView) findViewById(R.id.txtContComuEsp)).getText());
+        editor.putString("Rosario", (String) ((TextView) findViewById(R.id.txtContRosa)).getText());
+        editor.putString("Sacrificio", (String) ((TextView) findViewById(R.id.txtContSacri)).getText());
+        editor.putString("hrSanta", (String) ((TextView) findViewById(R.id.txtContHrSanta)).getText());
+        editor.putString("ExamenConci", (String) ((TextView) findViewById(R.id.txtContExaConci)).getText());
+        editor.putString("Confesion", (String) ((TextView) findViewById(R.id.txtContConfe)).getText());
+        editor.putString("Biblia", (String) ((TextView) findViewById(R.id.txtContBiblia)).getText());
+        editor.putString("HrServicio", (String) ((TextView) findViewById(R.id.txtContHrsServi)).getText());
+        editor.putString("RosaMisio", (String) ((TextView) findViewById(R.id.txtContRosaMisio)).getText());
+        editor.putString("Ayuno", (String) ((TextView) findViewById(R.id.txtContAyuno)).getText());
+        editor.putString("BendicionMesa", (String) ((TextView) findViewById(R.id.txtContBendicionMesa)).getText());
+        editor.putString("ObrEspiritual", (String) ((TextView) findViewById(R.id.txtContObrasEsp)).getText());
+        editor.putString("ObrCorporal", (String) ((TextView) findViewById(R.id.txtContObrasCorp)).getText());
+        editor.putString("Coronilla", (String) ((TextView) findViewById(R.id.txtContCoronilla)).getText());
+        editor.putString("Caridad", (String) ((TextView) findViewById(R.id.txtContCaridad)).getText());
+        editor.putString("PadreNuestro", (String) ((TextView) findViewById(R.id.txtContPadreNuestro)).getText());
+        editor.putString("AveMaria", (String) ((TextView) findViewById(R.id.txtContAveMaria)).getText());
+
+        editor.commit();
+
+        if (f == 1) {
+            Toast toast = Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (f == 2) {
+            Toast toast = Toast.makeText(this, "Datos eliminados", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    /************************************************************************
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
