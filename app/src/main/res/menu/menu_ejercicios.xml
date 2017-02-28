@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Indicaciones Mes 1"
+        android:id="@+id/menu_Mes1" />
+    <item android:title="Indicaciones mes 2"
+        android:id="@+id/menu_Mes2" />
     <item android:title="Regresar"
         android:id="@+id/menu_Regresar"
         android:icon="@android:drawable/ic_menu_revert" />

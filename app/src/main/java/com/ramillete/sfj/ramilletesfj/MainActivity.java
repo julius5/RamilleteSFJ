@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -444,8 +448,6 @@ public class MainActivity extends AppCompatActivity
             Intent ListSong = new Intent(getApplicationContext(), ejercicios_esp.class);
             startActivity(ListSong);
             finish();
-
-
         } else if (id == R.id.itm_Guardar) {
             //Opcion de guardar
             onGuardar(1);
@@ -690,6 +692,9 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
     }
 
+    /**
+     * Metodo para resetear la app
+     */
     public void resTodo() {
         ((TextView) findViewById(R.id.txtContMisa)).setText("0");
         ((TextView) findViewById(R.id.txtContComunion)).setText("0");
@@ -713,6 +718,9 @@ public class MainActivity extends AppCompatActivity
         onGuardar(2);
     }
 
+    /**
+     * Metodo para cargar los datos guardados
+     */
     private void cargarPreferencias() {
 
         Misa = (TextView) findViewById(R.id.txtContMisa);
@@ -765,6 +773,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Metodo para guardar los datos
+     * @param f
+     */
     public void onGuardar(int f) {
 
         SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);

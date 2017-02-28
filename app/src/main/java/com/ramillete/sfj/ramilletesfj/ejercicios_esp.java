@@ -1,6 +1,7 @@
 package com.ramillete.sfj.ramilletesfj;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -48,7 +49,7 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
         //Estilos de Spinners
         //aaSemana = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opSemana);
         aaSemana = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,opSemana);
-        aaDia = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opDia);
+        aaDia = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,opDia);
         spSemana.setAdapter(aaSemana);
        // spDia.setAdapter(aaDia);
 
@@ -147,13 +148,176 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
                    case 2:
                        switch (selcDia) {
                            case 0:Log.d("Semana2", "Dia 1");
-                               ejercicios.setText("Semana 2 Estas en el dia 1");
+                               ejercicios.setText(R.string.sem2Dia1);
                                break;
                            case 1:Log.d("Semana2", "Dia 2");
-                               ejercicios.setText("Semana 2 Estas en el dia 2");
+                               ejercicios.setText(R.string.sem2Dia2);
                                break;
-
-
+                           case 2:Log.d("Semana2", "Dia 3");
+                               ejercicios.setText(R.string.sem2Dia3);
+                               break;
+                           case 3:Log.d("Semana2", "Dia 4");
+                               ejercicios.setText(R.string.sem2Dia4);
+                               break;
+                           case 4:Log.d("Semana2", "Dia 5");
+                               ejercicios.setText(R.string.sem2Dia5);
+                               break;
+                           case 5:Log.d("Semana2", "Dia 6");
+                               ejercicios.setText(R.string.sem2Dia6);
+                               break;
+                           case 6:Log.d("Semana2", "Dia 7");
+                               ejercicios.setText(R.string.sem2Dia7);
+                               break;
+                       }
+                       break;
+                   case 3:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana3", "Dia 1");
+                               ejercicios.setText(R.string.sem3Dia1);
+                               break;
+                           case 1:Log.d("Semana3", "Dia 2");
+                               ejercicios.setText(R.string.sem3Dia2);
+                               break;
+                           case 2:Log.d("Semana3", "Dia 3");
+                               ejercicios.setText(R.string.sem3Dia3);
+                               break;
+                           case 3:Log.d("Semana3", "Dia 4");
+                               ejercicios.setText(R.string.sem3Dia4);
+                               break;
+                           case 4:Log.d("Semana3", "Dia 5");
+                               ejercicios.setText(R.string.sem3Dia5);
+                               break;
+                           case 5:Log.d("Semana3", "Dia 6");
+                               ejercicios.setText(R.string.sem3Dia6);
+                               break;
+                           case 6:Log.d("Semana3", "Dia 7");
+                               ejercicios.setText(R.string.sem3Dia7);
+                               break;
+                       }
+                       break;
+                   case 4:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana4", "Dia 1");
+                               ejercicios.setText(R.string.sem4Dia1);
+                               break;
+                           case 1:Log.d("Semana4", "Dia 2");
+                               ejercicios.setText(R.string.sem4Dia2);
+                               break;
+                           case 2:Log.d("Semana4", "Dia 3");
+                               ejercicios.setText(R.string.sem4Dia3);
+                               break;
+                           case 3:Log.d("Semana4", "Dia 4");
+                               ejercicios.setText(R.string.sem4Dia4);
+                               break;
+                           case 4:Log.d("Semana4", "Dia 5");
+                               ejercicios.setText(R.string.sem4Dia5);
+                               break;
+                           case 5:Log.d("Semana4", "Dia 6");
+                               ejercicios.setText(R.string.sem4Dia6);
+                               break;
+                           case 6:Log.d("Semana4", "Dia 7");
+                               ejercicios.setText(R.string.sem4Dia7);
+                               break;
+                       }
+                       break;
+                   case 5:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana5", "Dia 1");
+                               ejercicios.setText(R.string.sem5Dia1);
+                               break;
+                           case 1:Log.d("Semana5", "Dia 2");
+                               ejercicios.setText(R.string.sem5Dia2);
+                               break;
+                           case 2:Log.d("Semana5", "Dia 3");
+                               ejercicios.setText(R.string.sem5Dia3);
+                               break;
+                           case 3:Log.d("Semana5", "Dia 4");
+                               ejercicios.setText(R.string.sem5Dia4);
+                               break;
+                           case 4:Log.d("Semana5", "Dia 5");
+                               ejercicios.setText(R.string.sem5Dia5);
+                               break;
+                           case 5:Log.d("Semana5", "Dia 6");
+                               ejercicios.setText(R.string.sem5Dia6);
+                               break;
+                           case 6:Log.d("Semana5", "Dia 7");
+                               ejercicios.setText(R.string.sem5Dia7);
+                               break;
+                       }
+                       break;
+                   case 6:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana6", "Dia 1");
+                               ejercicios.setText(R.string.sem6Dia1);
+                               break;
+                           case 1:Log.d("Semana6", "Dia 2");
+                               ejercicios.setText(R.string.sem6Dia2);
+                               break;
+                           case 2:Log.d("Semana6", "Dia 3");
+                               ejercicios.setText(R.string.sem6Dia3);
+                               break;
+                           case 3:Log.d("Semana6", "Dia 4");
+                               ejercicios.setText(R.string.sem6Dia4);
+                               break;
+                           case 4:Log.d("Semana6", "Dia 5");
+                               ejercicios.setText(R.string.sem6Dia5);
+                               break;
+                           case 5:Log.d("Semana6", "Dia 6");
+                               ejercicios.setText(R.string.sem6Dia6);
+                               break;
+                           case 6:Log.d("Semana6", "Dia 7");
+                               ejercicios.setText(R.string.sem6Dia7);
+                               break;
+                       }
+                       break;
+                   case 7:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana7", "Dia 1");
+                               ejercicios.setText(R.string.sem7Dia1);
+                               break;
+                           case 1:Log.d("Semana7", "Dia 2");
+                               ejercicios.setText(R.string.sem7Dia2);
+                               break;
+                           case 2:Log.d("Semana7", "Dia 3");
+                               ejercicios.setText(R.string.sem7Dia3);
+                               break;
+                           case 3:Log.d("Semana7", "Dia 4");
+                               ejercicios.setText(R.string.sem7Dia4);
+                               break;
+                           case 4:Log.d("Semana7", "Dia 5");
+                               ejercicios.setText(R.string.sem7Dia5);
+                               break;
+                           case 5:Log.d("Semana7", "Dia 6");
+                               ejercicios.setText(R.string.sem7Dia6);
+                               break;
+                           case 6:Log.d("Semana7", "Dia 7");
+                               ejercicios.setText(R.string.sem7Dia7);
+                               break;
+                       }
+                       break;
+                   case 8:
+                       switch (selcDia) {
+                           case 0:Log.d("Semana8", "Dia 1");
+                               ejercicios.setText(R.string.sem8Dia1);
+                               break;
+                           case 1:Log.d("Semana8", "Dia 2");
+                               ejercicios.setText(R.string.sem8Dia2);
+                               break;
+                           case 2:Log.d("Semana8", "Dia 3");
+                               ejercicios.setText(R.string.sem8Dia3);
+                               break;
+                           case 3:Log.d("Semana8", "Dia 4");
+                               ejercicios.setText(R.string.sem8Dia4);
+                               break;
+                           case 4:Log.d("Semana8", "Dia 5");
+                               ejercicios.setText(R.string.sem8Dia5);
+                               break;
+                           case 5:Log.d("Semana8", "Dia 6");
+                               ejercicios.setText(R.string.sem8Dia6);
+                               break;
+                           case 6:Log.d("Semana8", "Dia 7");
+                               ejercicios.setText(R.string.sem8Dia7);
+                               break;
                        }
                        break;
                }
@@ -188,7 +352,7 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_ejercicios_drawer, menu);
+        getMenuInflater().inflate(R.menu.menu_ejercicios, menu);
         return true;
     }
 
