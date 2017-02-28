@@ -61,7 +61,7 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
                 switch (selecc) {
                     case 0:Log.d("Semana1", "Semana 1");
 
-                        ejercicios.setText("Seleccionar dia");
+                        //ejercicios.setText("Estas en la semana 1");
                         spDia.setAdapter(aaDia);
                         semananum = 1;
                         Log.d("SeleccDia", spDia.toString());
@@ -69,21 +69,72 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
                         break;
                     case 1:Log.d("Semana2", "Semana 2");
                         spDia.setAdapter(aaDia);
-                        ejercicios.setText("Seleccionar dia");
+                        //ejercicios.setText(getText(R.string.error));
                         semananum =2;
+                        break;
+                    case 2:Log.d("Semana3", "Semana 3");
+
+                        //ejercicios.setText("Estas en la semana 1");
+                        spDia.setAdapter(aaDia);
+                        semananum = 3;
+                        Log.d("SeleccDia", spDia.toString());
+
+                        break;
+                    case 3:Log.d("Semana4", "Semana 4");
+                        spDia.setAdapter(aaDia);
+                        //ejercicios.setText(getText(R.string.error));
+                        semananum =4;
+                        break;
+                    case 4:Log.d("Semana5", "Semana 5");
+
+                        //ejercicios.setText("Estas en la semana 1");
+                        spDia.setAdapter(aaDia);
+                        semananum = 5;
+                        Log.d("SeleccDia", spDia.toString());
+
+                        break;
+                    case 5:Log.d("Semana6", "Semana 6");
+                        spDia.setAdapter(aaDia);
+                        //ejercicios.setText(getText(R.string.error));
+                        semananum =6;
+                        break;
+                    case 6:Log.d("Semana7", "Semana 7");
+                        spDia.setAdapter(aaDia);
+                        //ejercicios.setText(getText(R.string.error));
+                        semananum =7;
+                        break;
+                    case 7:Log.d("Semana8", "Semana 8");
+                        spDia.setAdapter(aaDia);
+                        //ejercicios.setText(getText(R.string.error));
+                        semananum =8;
                         break;
                 }
              break;
            case R.id.spinnerDia:
                 int selcDia = spDia.getSelectedItemPosition();
                switch (semananum) {
-                   case 1:
+                   case 1://Primera Semana
                        switch (selcDia) {
                        case 0:Log.d("Semana1", "Dia 1");
-                           ejercicios.setText("@Ramillete/sem1Dia1");
+                           ejercicios.setText(R.string.sem1Dia1);
                            break;
                        case 1:Log.d("Semana1", "Dia 2");
-                           ejercicios.setText("@Ramillete/sem1Dia2");
+                           ejercicios.setText(R.string.sem1Dia2);
+                           break;
+                       case 2:Log.d("Semana1", "Dia 3");
+                           ejercicios.setText(R.string.sem1Dia3);
+                           break;
+                       case 3:Log.d("Semana1", "Dia 4");
+                           ejercicios.setText(R.string.sem1Dia4);
+                           break;
+                       case 4:Log.d("Semana1", "Dia 5");
+                           ejercicios.setText(R.string.sem1Dia5);
+                           break;
+                       case 5:Log.d("Semana1", "Dia 6");
+                           ejercicios.setText(R.string.sem1Dia6);
+                           break;
+                       case 6:Log.d("Semana1", "Dia 7");
+                           ejercicios.setText(R.string.sem1Dia7);
                            break;
 
                         }
