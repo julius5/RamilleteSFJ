@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Date;
 
 public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
     Spinner spSemana, spDia;
@@ -49,6 +52,15 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
        // spDia.setAdapter(aaDia);
 
    }
+
+
+    public void onIniciarEjer(){
+        Date d = new Date();
+        CharSequence dia  = DateFormat.format("d", d.getTime());
+        CharSequence mes  = DateFormat.format("MMMM", d.getTime());
+        Log.d("Dia", ""+ dia);
+        Log.d("Mes", ""+ mes);
+    }
 
     //ejercicios.setText("Hola Mundo desde 1");
     //spDia.setAdapter(aaDia);

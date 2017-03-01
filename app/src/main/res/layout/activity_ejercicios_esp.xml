@@ -30,15 +30,24 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_ejercicios_esp" />
+    <include layout="@layout/content_ejercicios_esp"
+        android:id="@+id/include2" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/iniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        app:backgroundTint="@android:color/holo_red_light" />
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_anchor="@+id/include2" />
 
+    <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@android:drawable/ic_menu_revert"
+    app:backgroundTint="@android:color/holo_red_light"
+        app:layout_anchor="@+id/include2" />
 </android.support.design.widget.CoordinatorLayout>

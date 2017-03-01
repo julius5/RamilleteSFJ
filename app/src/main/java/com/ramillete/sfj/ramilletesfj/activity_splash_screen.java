@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 public class activity_splash_screen extends AppCompatActivity {
 
-
+    int progress = 0;
+    ProgressBar simpleProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        simpleProgressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
+        setProgressValue(progress);
 
         Thread timerTread = new Thread(){
             public void run(){
@@ -28,7 +32,29 @@ public class activity_splash_screen extends AppCompatActivity {
             }
         };
         timerTread.start();
+
     }
+
+    private void setProgressValue(final int progress) {
+
+        // set the progress
+        simpleProgressBar.setProgress(progress);
+        // thread is used to change the progress value
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(400);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                setProgressValue(progress + 10);
+            }
+        });
+        thread.start();
+    }
+
+
     @Override
     protected void onPause(){
         super.onPause();

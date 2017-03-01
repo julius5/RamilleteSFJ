@@ -10,15 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <ProgressBar
+        android:id="@+id/simpleProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logopastoral"
-        android:id="@+id/imageView3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,5 +30,25 @@
         android:layout_alignBottom="@+id/imageView3"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logopastoral"
+        android:id="@+id/imageView3"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Cargando..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5"
+        android:textSize="24sp"
+        android:textStyle="normal|bold|italic"
+        android:textColor="@android:color/holo_red_dark" />
 
 </RelativeLayout>
