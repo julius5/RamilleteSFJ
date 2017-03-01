@@ -26,7 +26,7 @@ public class activity_splash_screen extends AppCompatActivity {
                 catch (InterruptedException e){
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                    Intent intent = new Intent(activity_splash_screen.this, MainActivity.class);
                     startActivity(intent);
                 }
             }
@@ -42,7 +42,6 @@ public class activity_splash_screen extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash_screen, menu);
         return true;
     }
 

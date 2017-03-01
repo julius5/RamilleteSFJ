@@ -7,8 +7,4 @@
     <string name="username">Usuario</string>
     <string name="password" />
     <string name="title_activity_ejercicios_esp">Ejercicios Espirituales</string>
-    <string name="title_activity_splash">splash</string>
-    <string name="title_activity_splash_screen">"Ramillete "</string>
-
-    <!-- TODOs: Remove or change this placeholder text -->
 </resources>
