@@ -15,6 +15,16 @@
     //android:background="@drawable/logo">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo"
+            android:id="@+id/imageView5" />
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"

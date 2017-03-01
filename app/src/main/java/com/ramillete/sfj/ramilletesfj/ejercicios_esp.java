@@ -1,10 +1,8 @@
 package com.ramillete.sfj.ramilletesfj;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,9 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.ramillete.sfj.ramilletesfj.MainActivity;
-import com.ramillete.sfj.ramilletesfj.R;
 
 public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
     Spinner spSemana, spDia;
@@ -367,6 +362,12 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
         }else if(id == R.id.menu_Salir) {
             //return true;
             System.exit(0);
+        }else if(id == R.id.menu_Mes1) {
+            //return true;
+            ejercicios.setText(R.string.introduccion1);
+        }else if(id == R.id.menu_Mes2) {
+            //return true;
+            ejercicios.setText(R.string.introduccion1);
         }
 
         return super.onOptionsItemSelected(item);

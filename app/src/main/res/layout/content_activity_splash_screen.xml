@@ -14,7 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/logopastoral"
-        android:id="@+id/imageView3" />
+        android:id="@+id/imageView3"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,8 +25,9 @@
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:text="Ramillete SFJ"
         android:textSize="28sp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/textView"
+        android:layout_alignBottom="@+id/imageView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp" />
+        android:layout_marginBottom="26dp" />
 
 </RelativeLayout>
