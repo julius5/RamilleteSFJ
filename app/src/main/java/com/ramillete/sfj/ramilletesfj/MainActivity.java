@@ -691,6 +691,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void resTodo() {
+
+
+
+
+
         ((TextView) findViewById(R.id.txtContMisa)).setText("0");
         ((TextView) findViewById(R.id.txtContComunion)).setText("0");
         ((TextView) findViewById(R.id.txtContComuEsp)).setText("0");
