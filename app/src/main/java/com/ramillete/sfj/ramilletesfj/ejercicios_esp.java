@@ -21,6 +21,7 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
     Spinner spSemana, spDia;
     TextView ejercicios;
     int semananum=0;
+    int diaInicio=0, mesInicio=0,diaCont=0,semanaCont=0,diaIni2=0;
     ArrayAdapter<String> aaSemana, aaDia;
     String [] opSemana = new String [] {"Semana 1", "Semana 2","Semana 3", "Semana 4","Semana 5", "Semana 6","Semana 7", "Semana 8"};
     String [] opDia = new String [] {"Día 1", "Día 2","Día 3", "Día 4","Día 5", "Día 6","Día 7"};
@@ -54,12 +55,72 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
    }
 
 
-    public void onIniciarEjer(){
+    public void onIniciarEjer(View v){
         Date d = new Date();
-        CharSequence dia  = DateFormat.format("d", d.getTime());
-        CharSequence mes  = DateFormat.format("MMMM", d.getTime());
-        Log.d("Dia", ""+ dia);
-        Log.d("Mes", ""+ mes);
+        CharSequence diaDate  = DateFormat.format("d", d.getTime());
+        CharSequence mesDate  = DateFormat.format("M", d.getTime());
+        Log.d("Dia", ""+ diaDate);
+        Log.d("Mes", ""+ mesDate);
+
+        diaInicio= Integer.parseInt(""+diaDate);
+        mesInicio=Integer.parseInt(""+mesDate);
+        diaCont=1;
+        semanaCont=1;
+
+    }
+    public void contadorDeEjercicios(){
+        Date d = new Date();
+        CharSequence diaDate  = DateFormat.format("d", d.getTime());
+        int di=Integer.parseInt(""+diaDate);
+        CharSequence mesDate  = DateFormat.format("M", d.getTime());
+        int mes=Integer.parseInt(""+mesDate);
+        if(diaCont!=0){
+            if(mes==mesInicio){
+               diaCont=(di-diaInicio)+1;
+               diaIni2=(di-diaInicio)+1;
+            }else{
+                diaCont=diaIni2+di;
+            }
+
+            semanaCont=(diaCont/7)+1;
+
+
+
+        }
+
+        /*
+        * Esto fue una idea pero creo que jala meojor lo de arriba
+        *
+        if (diaInicio==di){
+            if(semanaInicio!=sem){
+                diaCont++;
+            }
+        }else if(diaInicio!=di){
+            diaCont++;
+        }
+
+        if(diaCont>=1 && diaCont<=7){
+            semanaCont=1;
+        }else if(diaCont>=8 && diaCont<=14){
+            semanaCont=2;
+        }else if(diaCont>=15 && diaCont<=21){
+            semanaCont=3;
+        }else if(diaCont>=22 && diaCont<=28){
+            semanaCont=4;
+        }else if(diaCont>=29 && diaCont<=35){
+            semanaCont=5;
+        }else if(diaCont>=36 && diaCont<=42){
+            semanaCont=6;
+        }else if(diaCont>=43 && diaCont<=49){
+            semanaCont=7;
+        }else if(diaCont>=50 && diaCont<56){
+            semanaCont=8;
+        }else if(diaCont==56){
+            semanaCont=0;
+            diaCont=0;
+        }
+       */
+
     }
 
     //ejercicios.setText("Hola Mundo desde 1");
