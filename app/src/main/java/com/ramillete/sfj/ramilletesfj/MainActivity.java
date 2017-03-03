@@ -690,12 +690,30 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
     }
 
+    /**
+     * Metodo para resetear el ramillete
+     */
     public void resTodo() {
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Importante");
+        dialogo1.setMessage("¿ Desea reiniciar los avances ?");
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Simon", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                aceptar();
+            }
+        });
+        dialogo1.setNegativeButton("No =O", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                cancelar();
+            }
+        });
+        dialogo1.show();
+    }
 
-
-
-
-
+    public void aceptar() {
+        Toast t=Toast.makeText(this,"Reseteando todo", Toast.LENGTH_SHORT);
+        t.show();
         ((TextView) findViewById(R.id.txtContMisa)).setText("0");
         ((TextView) findViewById(R.id.txtContComunion)).setText("0");
         ((TextView) findViewById(R.id.txtContComuEsp)).setText("0");
@@ -718,6 +736,15 @@ public class MainActivity extends AppCompatActivity
         onGuardar(2);
     }
 
+    public void cancelar() {
+        Toast t=Toast.makeText(this,"Bueno... =D", Toast.LENGTH_SHORT);
+        t.show();
+        //finish();
+    }
+
+    /**
+     * Metodo Para cargar los datos guardados
+     */
     private void cargarPreferencias() {
 
         Misa = (TextView) findViewById(R.id.txtContMisa);
@@ -770,6 +797,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Metodo para guardar
+     * @param f
+     */
     public void onGuardar(int f) {
 
         SharedPreferences misPreferencias = getSharedPreferences("RamilleteUsuario", Context.MODE_PRIVATE);

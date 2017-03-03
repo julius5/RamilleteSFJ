@@ -1,5 +1,7 @@
 package com.ramillete.sfj.ramilletesfj;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -440,7 +442,23 @@ public class ejercicios_esp extends AppCompatActivity implements AdapterView.OnI
             ejercicios.setText(R.string.introduccion1);
         }else if(id == R.id.menu_Mes2) {
             //return true;
-            ejercicios.setText(R.string.introduccion1);
+            ejercicios.setText(R.string.introduccion2);
+        }else if(id == R.id.tutoEjer){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(" 1- Selecciona la semana correspondiente a los ejercicios." +
+                    "\n\n 2- Selecciona el día correspondiente a los ejercicios" +
+                    "\n\n 3- Realiza tu ejercicio espiritual diario" +
+                    "\n\n 4- Selecciona del menú la opción regresar para regresar al menú " +
+                    "principal, o da clic en el botón de la parte inferior derecha.")
+                    .setCancelable(false)
+                    .setNeutralButton("Aceptar",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+            AlertDialog alert = builder.create();
+            alert.show();
         }
 
         return super.onOptionsItemSelected(item);

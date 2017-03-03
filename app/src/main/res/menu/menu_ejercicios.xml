@@ -2,6 +2,8 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Tutorial"
+        android:id="@+id/tutoEjer" />
     <item android:title="Indicaciones Mes 1"
         android:id="@+id/menu_Mes1" />
     <item android:title="Indicaciones mes 2"
