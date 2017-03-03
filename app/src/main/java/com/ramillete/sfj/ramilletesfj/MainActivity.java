@@ -499,7 +499,7 @@ public class MainActivity extends AppCompatActivity
 
             cargarPreferencias();
             // Todo esto cambia el String "datos" para dejarlo entendible, borra espacios y cambia los nombres
-            datos = datos.replaceAll("[^a-zA-Z0-9={} ]", "\n");
+            datos = datos.replaceAll("[^a-zA-Z0-9={} -]", "\n");
             datos = datos.replaceAll("[{|}]", " ");
             datos = datos.replaceAll("ComunionEsp", "Comunión Espiritual");
             datos = datos.replaceAll("Comunion", "Comunión");
