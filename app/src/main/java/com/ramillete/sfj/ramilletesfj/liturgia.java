@@ -107,7 +107,7 @@ public class liturgia extends AppCompatActivity {
         });
 
         FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.return_home);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 regresar2();
             }
