@@ -313,10 +313,10 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:text="Sacrificios"
+                    android:text="Liturgia hrs."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtSacrificios"
+                    android:id="@+id/txtLiturgia"
 
                     android:textSize="15sp"
                     android:textStyle="normal|bold"

@@ -11,6 +11,10 @@
             android:id="@+id/itm_Ejercicios"
             android:icon="@android:drawable/ic_menu_myplaces" />
         <item
+            android:id="@+id/itm_liturgia"
+            android:icon="@drawable/ic_liturgia"
+            android:title="Liturgia de las horas" />
+        <item
             android:id="@+id/itm_Guardar"
             android:icon="@android:drawable/ic_menu_save"
             android:title="Guardar" />

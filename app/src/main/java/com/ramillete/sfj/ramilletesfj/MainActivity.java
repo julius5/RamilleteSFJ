@@ -444,9 +444,12 @@ public class MainActivity extends AppCompatActivity
             Intent ListSong = new Intent(getApplicationContext(), ejercicios_esp.class);
             startActivity(ListSong);
             finish();
-
-
-        } else if (id == R.id.itm_Guardar) {
+        } else if (id == R.id.itm_liturgia) {
+            //Opcion de Ejercicios Espirituales
+            Intent ListSong = new Intent(getApplicationContext(), liturgia_menu.class);
+            startActivity(ListSong);
+            finish();
+        }else if (id == R.id.itm_Guardar) {
             //Opcion de guardar
             onGuardar(1);
         } else if (id == R.id.itm_AcercaDe) {

@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="username">Usuario</string>
     <string name="password" />
-    <string name="title_activity_ejercicios_esp">Ejercicios Espirituales</string>
+    <string name="title_activity_ejercicios_esp">Ejercicios espirituales</string>
+    <string name="title_activity_liturgia">Liturgia de las horas</string>
+    <string name="title_activity_liturgia_menu">Liturgia de las horas</string>
 </resources>
