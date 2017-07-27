@@ -631,7 +631,7 @@ public class MainActivity extends AppCompatActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Ramillete para la pastoral juvenil de la parroquia de San Francisco Javier" +
                 " Chihuahua, Mex. \n\n" +
-                " - Ver. 1.0 \n" +
+                " - Ver. 1.2 \n" +
                 " - Autores: \n     Erick Martínez" +
                 " \n     Manuel García \n" +
                 " \n -Contacto: \n    Pastoral.juvenil.sfj@gmail.com"+
