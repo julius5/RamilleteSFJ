@@ -449,6 +449,11 @@ public class MainActivity extends AppCompatActivity
             Intent ListSong = new Intent(getApplicationContext(), liturgia_menu.class);
             startActivity(ListSong);
             finish();
+        } else if (id == R.id.itm_biblia) {
+            //Opcion de Ejercicios Espirituales
+            Intent ListSong = new Intent(getApplicationContext(), evangelio.class);
+            startActivity(ListSong);
+            finish();
         }else if (id == R.id.itm_Guardar) {
             //Opcion de guardar
             onGuardar(1);

@@ -49,6 +49,10 @@
         <activity
             android:name=".liturgia_menu"
             android:label="@string/title_activity_liturgia_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".evangelio"
+            android:label="@string/title_activity_evangelio"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
